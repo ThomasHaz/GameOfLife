@@ -62,11 +62,13 @@ class Handler {
         return count
     }
     
+    //Cell will live
     func survival(cell: Cell) -> Bool {
         let count = self.countLivingNeighboursOf(cell)
         return count == 2 || count == 3
     }
     
+    //Cell will become alive
     func reproduction(potentialCell cell : Cell) -> Bool {
         return self.countLivingNeighboursOf(cell) == 3
     }
@@ -101,8 +103,8 @@ class Handler {
             
             var description = ""
             
-            for y in minY...maxY {
-                for x in minX...maxX {
+            for y in minY-1...maxY+1 {
+                for x in minX-1...maxX+1 {
                     let cell = Cell(x, y)
                     if(self.cellCollection.contains(cell)) {
                         if(self.underPopulation(cell: cell)) {
@@ -115,7 +117,11 @@ class Handler {
                             description.append("# ")
                         }
                     } else {
-                        description.append("  ")
+                        if(self.reproduction(potentialCell: cell)) {
+                            description.append(". ")
+                        } else {
+                            description.append("  ")
+                        }
                     }
                 }
                 description.append("\n")
