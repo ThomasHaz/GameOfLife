@@ -107,7 +107,7 @@ class Handler {
                     if(self.cellCollection.contains(cell)) {
                         if(self.underPopulation(cell: cell)) {
                             //Will die next round
-                            description.append("O ")
+                            description.append("U ")
                         } else if (self.overPopulation(cell: cell)) {
                             //Will die next round
                             description.append("O ")
