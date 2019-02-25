@@ -40,16 +40,8 @@ class GameOfLifeTests: XCTestCase {
         XCTAssertTrue(newCell == newCell3)
     }
     
-    func testUnderPopulation() {
-        
-    }
-    
     func testSurvival() {
         
-    }
-
-    func testOvercrowding() {
-    
     }
     
     func testReproduction() {

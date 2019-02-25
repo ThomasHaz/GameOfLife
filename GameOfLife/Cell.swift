@@ -10,15 +10,14 @@ import Foundation
 
 
 class Cell : Hashable{
-    var xPos : Int32
-    var yPos: Int32
+    var xPos : Int
+    var yPos: Int
     
     static func == (lhs: Cell, rhs: Cell) -> Bool {
         return lhs.xPos == rhs.xPos && lhs.yPos == rhs.yPos
     }
     
-    
-    init(_ x: Int32, _ y: Int32) {
+    init(_ x: Int, _ y: Int) {
         self.xPos = x
         self.yPos = y
     }

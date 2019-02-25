@@ -11,33 +11,77 @@ import UIKit
 class ViewController: UIViewController {
 
     var handler : Handler!
-    var timer : Timer?
+    
+    private var _timer : Timer?
+    var timer : Timer {
+        get {
+            if _timer == nil {
+                _timer = Timer.init(timeInterval: 0.5, target: self, selector: #selector(ViewController.endTurn), userInfo: nil, repeats: true)
+            }
+            return _timer!
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        self.handler = Handler(cells: Handler.rowOfTen)
+        let cells = Set(Samples.filledRectOf(width: 4, height: 3).map(
+                { (Cell) -> Cell in
+                    Cell.xPos += 3
+                    return Cell
+                }
+            )
+        ).union(
+            Samples.filledRectOf(width: 2, height: 2)
+        )
         
-        self.timer = Timer.init(timeInterval: 0.5, target: self, selector: #selector(ViewController.endTurn), userInfo: nil, repeats: true)
-        RunLoop.current.add(self.timer!, forMode: RunLoop.Mode.default)
+        self.handler = Handler(withCells: cells)
         
+        print( self.prettyDescription(of: self.handler.description) )
+        
+        self.startStopTimer()
         
     }
 
-    var previousStates = Set<String>()
+    
+    var previousStates = [String]()
     @objc func endTurn() {
         self.handler.endTurn()
-        let state = self.handler.description()
-        guard self.previousStates.insert(state).inserted else {
-            self.timer?.invalidate()
-            print("Run completed")
-            return
+        let state = self.handler.description
+        
+        if self.previousStates.contains(state) {
+            self.startStopTimer()
+            if(state == "") {
+                print("Game Over")
+                return
+            } else {
+                print("Repeating from: ")
+                print( self.prettyDescription(of: state) )
+            }
+        } else {
+            print( self.prettyDescription(of: state) )
         }
         
-        print(state)
+        self.previousStates.append(state)
     }
     
     
+    @IBAction func startStopTimer() {
+        if( !(_timer?.isValid ?? false) ) {
+            //Start Timer
+            RunLoop.current.add(self.timer, forMode: RunLoop.Mode.default)
+        } else {
+            //Stop Timer
+            self.timer.invalidate()
+            _timer = nil
+        }
+    }
+    
+    
+    private func prettyDescription(of state: String?) -> String {
+        return "\n ----- \n\n\(state ?? "")\n ----- \n\n\n\n"
+    }
     
 }
 

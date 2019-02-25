@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F827C937222313D500509649 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F827C936222313D500509649 /* .gitignore */; };
+		F827C9392223B91C00509649 /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = F827C9382223B91C00509649 /* Samples.swift */; };
 		F8EC839E222192320018C782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC839D222192320018C782 /* AppDelegate.swift */; };
 		F8EC83A0222192320018C782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC839F222192320018C782 /* ViewController.swift */; };
 		F8EC83A3222192320018C782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8EC83A1222192320018C782 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		F827C936222313D500509649 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F827C9382223B91C00509649 /* Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
 		F8EC839A222192320018C782 /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EC839D222192320018C782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8EC839F222192320018C782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				F8EC839D222192320018C782 /* AppDelegate.swift */,
 				F8EC839F222192320018C782 /* ViewController.swift */,
 				F8EC83BF222199FA0018C782 /* Handler.swift */,
+				F827C9382223B91C00509649 /* Samples.swift */,
 				F8EC83BD222194910018C782 /* Cell.swift */,
 				F8EC83A1222192320018C782 /* Main.storyboard */,
 				F8EC83A4222192330018C782 /* Assets.xcassets */,
@@ -210,6 +213,7 @@
 				F8EC83A0222192320018C782 /* ViewController.swift in Sources */,
 				F8EC839E222192320018C782 /* AppDelegate.swift in Sources */,
 				F8EC83C0222199FA0018C782 /* Handler.swift in Sources */,
+				F827C9392223B91C00509649 /* Samples.swift in Sources */,
 				F8EC83BE222194910018C782 /* Cell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
