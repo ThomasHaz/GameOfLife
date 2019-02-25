@@ -64,12 +64,18 @@ class Handler {
     
     //Cell will live
     func survival(cell: Cell) -> Bool {
+        guard self.cellCollection.contains(cell) else {
+            return false
+        }
         let count = self.countLivingNeighboursOf(cell)
         return count == 2 || count == 3
     }
     
     //Cell will become alive
     func reproduction(potentialCell cell : Cell) -> Bool {
+        guard (!self.cellCollection.contains(cell)) else {
+            return false
+        }
         return self.countLivingNeighboursOf(cell) == 3
     }
     
