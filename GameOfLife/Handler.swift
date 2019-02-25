@@ -71,6 +71,16 @@ class Handler {
         return self.countLivingNeighboursOf(cell) == 3
     }
     
+    //Cell is about to die
+    func underPopulation(cell: Cell) -> Bool {
+        return self.countLivingNeighboursOf(cell) < 2
+    }
+    
+    //Cell is about to die
+    func overPopulation(cell: Cell) -> Bool {
+        return self.countLivingNeighboursOf(cell) > 3
+    }
+    
     var description : String {
         get {
             guard self.cellCollection.count > 0 else {
@@ -95,7 +105,15 @@ class Handler {
                 for x in minX...maxX {
                     let cell = Cell(x, y)
                     if(self.cellCollection.contains(cell)) {
-                        description.append("# ")
+                        if(self.underPopulation(cell: cell)) {
+                            //Will die next round
+                            description.append("O ")
+                        } else if (self.overPopulation(cell: cell)) {
+                            //Will die next round
+                            description.append("O ")
+                        } else {
+                            description.append("# ")
+                        }
                     } else {
                         description.append("  ")
                     }
